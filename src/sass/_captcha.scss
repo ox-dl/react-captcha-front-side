@@ -1,0 +1,90 @@
+$shadow: #646464;
+
+@mixin wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin center {
+  justify-content: center;
+  align-items: center;
+}
+
+.captcha {
+  width: 280px;
+  background-color: #282828;
+  border-radius: 8px;
+  box-shadow: 0 0 6px $shadow;
+  @include column;
+  @include center;
+  &__launcher {
+    width: 100%;
+    height: 50px;
+    font-size: 1.2rem;
+    user-select: none;
+    cursor: pointer;
+    @include wrap;
+    @include center;
+    & svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 15px;
+      background-color: #373737;
+      border: 1px solid $shadow;
+    }
+  }
+  &__example {
+    margin: 30px 0;
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid $shadow;
+    border-bottom: 1px solid $shadow;
+    @include wrap;
+    @include center;
+    &-progress {
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(40, 40, 40, 0.8) 52%,
+        transparent 53%,
+        transparent 60%,
+        rgba(40, 40, 40, 0.8) 61%
+      );
+      position: absolute;
+      right: 0;
+      transition: 80ms ease;
+    }
+  }
+  &__grid {
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+    gap: 10px;
+    &-case {
+      background-color: #323232;
+      border: 1px solid $shadow;
+      border-radius: 6px;
+      font-size: 1.8rem;
+      transition: 80ms ease;
+      user-select: none;
+      cursor: pointer;
+      @include wrap;
+      @include center;
+      &:hover {
+        border-color: peru;
+        color: peru;
+      }
+      &:active {
+        background-color: peru;
+        color: inherit;
+      }
+    }
+  }
+}
