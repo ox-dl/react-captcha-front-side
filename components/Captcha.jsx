@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Canvas from './content/Canvas';
-import ValidSvg from './content/ValidSvg';
+import { useState } from 'react';
+import Canvas from './Canvas';
+import ValidSvg from './ValidSvg';
 
 const Captcha = () => {
 
